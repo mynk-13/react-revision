@@ -1,3 +1,4 @@
+import HookUseContext from "./AllHooksRevision/HookUseContext"
 import HookUseEffect from "./AllHooksRevision/HookUseEffect"
 import HookUseLayoutEffect from "./AllHooksRevision/HookUseLayoutEffect"
 import HookUseRef from "./AllHooksRevision/HookUseRef"
@@ -12,8 +13,9 @@ function App() {
        {/* <HookUseState /> */}
        {/* <HookUseEffect /> */}
        {/* <HookUseLayoutEffect /> */}
-       <HookUseRef />
+       {/* <HookUseRef /> */}
        {/* <HookUseRefvsUseState /> */}
+       <HookUseContext />
        </div>
   )
 }
