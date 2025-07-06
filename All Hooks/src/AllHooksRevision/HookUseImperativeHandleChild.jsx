@@ -1,6 +1,6 @@
-import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 
-const HookUseImperativeHandleChild = ({ref}) => {
+const HookUseImperativeHandleChild = forwardRef((props, ref) => {
 
     const [inputValue, setInpValue]=useState("");
     const inputRef=useRef(null);
@@ -34,6 +34,6 @@ const HookUseImperativeHandleChild = ({ref}) => {
         </div>
     </div>
   )
-}
+});
 
 export default HookUseImperativeHandleChild
