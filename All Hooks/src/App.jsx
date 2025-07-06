@@ -1,6 +1,8 @@
 import HookUseContext from "./AllHooksRevision/HookUseContext"
 import HookUseEffect from "./AllHooksRevision/HookUseEffect"
 import HookUseLayoutEffect from "./AllHooksRevision/HookUseLayoutEffect"
+import HookUseReducer from "./AllHooksRevision/HookUseReducer"
+import HookUseReducerCart from "./AllHooksRevision/HookUseReducerCart"
 import HookUseRef from "./AllHooksRevision/HookUseRef"
 import HookUseRefvsUseState from "./AllHooksRevision/HookUseRefvsUseState"
 import HookUseState from "./AllHooksRevision/HookUseState"
@@ -15,7 +17,9 @@ function App() {
        {/* <HookUseLayoutEffect /> */}
        {/* <HookUseRef /> */}
        {/* <HookUseRefvsUseState /> */}
-       <HookUseContext />
+       {/* <HookUseContext /> */}
+       {/* <HookUseReducer /> */}
+       <HookUseReducerCart />
        </div>
   )
 }

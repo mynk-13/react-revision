@@ -24,5 +24,6 @@ button{
   background-color: var(--button-bg);
   color: var(--button-text);
   border: none;
-  padding: 2px;
+  padding: 2px 2px;
+  margin: 2px 2px;
 }
