@@ -25,7 +25,9 @@ const HookUseMemo = () => {
 
         console.log("handleChange called");
 
-        for(let i=0; i<1000000000;i++){}
+        for(let i=0; i<1000000000;i++){
+            
+        }
 
         return num.count*2;
     },[num]);

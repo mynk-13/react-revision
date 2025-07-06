@@ -1,3 +1,4 @@
+import HookUseCallback from "./AllHooksRevision/HookUseCallback"
 import HookUseContext from "./AllHooksRevision/HookUseContext"
 import HookUseEffect from "./AllHooksRevision/HookUseEffect"
 import HookUseLayoutEffect from "./AllHooksRevision/HookUseLayoutEffect"
@@ -21,7 +22,8 @@ function App() {
        {/* <HookUseContext /> */}
        {/* <HookUseReducer /> */}
        {/* <HookUseReducerCart /> */}
-       <HookUseMemo />
+       {/* <HookUseMemo /> */}
+       <HookUseCallback />
        </div>
   )
 }
