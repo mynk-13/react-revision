@@ -1,5 +1,6 @@
 import HookUseCallback from "./AllHooksRevision/HookUseCallback"
 import HookUseContext from "./AllHooksRevision/HookUseContext"
+import HookUseDefferedValue from "./AllHooksRevision/HookUseDefferedValue"
 import HookUseEffect from "./AllHooksRevision/HookUseEffect"
 import HookUseId from "./AllHooksRevision/HookUseId"
 import HookUseImperativeHandleParent from "./AllHooksRevision/HookUseImperativeHandleParent"
@@ -30,7 +31,8 @@ function App() {
        {/* <HookUseImperativeHandleParent /> */}
        {/* <HookUseId />
        <HookUseId /> */}
-       <HookUseTransition />
+       {/* <HookUseTransition /> */}
+       <HookUseDefferedValue />
        </div>
   )
 }
