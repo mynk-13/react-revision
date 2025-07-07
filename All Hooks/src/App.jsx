@@ -10,6 +10,7 @@ import HookUseReducerCart from "./AllHooksRevision/HookUseReducerCart"
 import HookUseRef from "./AllHooksRevision/HookUseRef"
 import HookUseRefvsUseState from "./AllHooksRevision/HookUseRefvsUseState"
 import HookUseState from "./AllHooksRevision/HookUseState"
+import HookUseTransition from "./AllHooksRevision/HookUseTransition"
 
 
 function App() {
@@ -27,8 +28,9 @@ function App() {
        {/* <HookUseMemo /> */}
        {/* <HookUseCallback /> */}
        {/* <HookUseImperativeHandleParent /> */}
-       <HookUseId />
-       <HookUseId />
+       {/* <HookUseId />
+       <HookUseId /> */}
+       <HookUseTransition />
        </div>
   )
 }
