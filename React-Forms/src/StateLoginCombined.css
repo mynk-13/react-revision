@@ -1,0 +1,15 @@
+.form-control{
+    padding: 0.5em 1em;
+    margin: 0.5em 1em;
+}
+
+.btn-container{
+    padding:1em;
+    margin: 0.5em;
+}
+
+.btn-form{
+
+    padding:0 1em;
+    margin: 0 1em;
+}
