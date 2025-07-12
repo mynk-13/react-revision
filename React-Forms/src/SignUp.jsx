@@ -21,8 +21,13 @@ const  SignUp =() => {
         /** Quite long with each input for complex forms */
         // const enteredEmail= enteredFormData.get("email");
         // const enteredPassword=enteredFormData.get("password");
+        // object key -> input type should have email  
+
+        const acquisitionChannel=enteredFormData.getAll('acquisition');
 
        const data= Object.fromEntries(enteredFormData.entries());
+
+       data.acquisition=acquisitionChannel;
         
        console.log(data);
     
