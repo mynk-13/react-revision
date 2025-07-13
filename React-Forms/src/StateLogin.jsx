@@ -12,6 +12,14 @@ const StateLogin = () => {
 
         console.log("Email : " , emailValue);
         console.log("Password : ", passwordValue);
+
+        e.target.reset();
+    }
+
+    const handleReset=()=>{
+        
+        setEmailValue("");
+        setPasswordValue("");
     }
 
   return (
@@ -29,8 +37,8 @@ const StateLogin = () => {
         </div>
 
         <div className='btn-container'>
-        <button className='bt-form' type="reset">Reset</button>
-        <button className='btn-form'>Login</button>
+        <button className='bt-form' type='button' onClick={handleReset}>Reset</button>
+        <button className='btn-form' type="submit">Login</button>
         </div>
 
         </form>

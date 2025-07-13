@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SignUp.css";
 
 
@@ -30,6 +30,8 @@ const  SignUp =() => {
        data.acquisition=acquisitionChannel;
         
        console.log(data);
+
+       e.target.reset();
     
     }
   
@@ -127,7 +129,7 @@ const  SignUp =() => {
       </div>
 
       <p className="form-actions">
-        <button type="button" className="button button-flat">
+        <button type="reset" className="button button-flat">
           Reset
         </button>
         <button type="submit" className="button">
