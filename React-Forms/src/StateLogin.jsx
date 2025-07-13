@@ -6,6 +6,10 @@ const StateLogin = () => {
     const [emailValue, setEmailValue]=useState("");
     const [passwordValue, setPasswordValue]=useState("");
 
+    const emailIsInvalid= emailValue!=="" && !emailValue.includes('@');
+
+
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         console.log("Form Submitted !!!");
@@ -29,6 +33,7 @@ const StateLogin = () => {
         <div className='form-control'>
         <label htmlFor='email' className='form-label'>Email</label><br />
         <input id="email" type="email" name='email' value={emailValue} onChange={(e)=> setEmailValue(e.target.value)} />  
+        <div>{emailIsInvalid && <p>Pls enter a valid email</p>}</div>
         </div>
 
         <div className='form-control'>

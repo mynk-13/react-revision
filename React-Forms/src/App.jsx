@@ -11,8 +11,8 @@ function App() {
   return (
     <>
     <h2>Forms</h2>
-      {/* <StateLogin /> */}
-      <StateLoginCombined />
+      <StateLogin />
+      {/* <StateLoginCombined /> */}
       {/* <RefLogin /> */}
       {/* <SignUp /> */}
     </>

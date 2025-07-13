@@ -15,6 +15,8 @@ const RefLogin = () => {
             
             console.log("Email : " , emailRef.current.value);
             console.log("Password : ", passwordRef.current.value);
+
+            e.target.reset();
         }
 
 
