@@ -14,6 +14,8 @@ const StateLoginCombined = () => {
 
         console.log("Email : " , enteredValues.email);
         console.log("Password : ", enteredValues.password);
+
+
     }
 
     const handleInputChange=(identifier, value)=>{
@@ -23,6 +25,14 @@ const StateLoginCombined = () => {
         }))
 
 
+    }
+
+    const handleReset=()=>{
+
+            setEnteredValues({
+                email:"",
+                password:""
+            })
     }
 
   return (
@@ -40,7 +50,7 @@ const StateLoginCombined = () => {
         </div>
 
         <div className='btn-container'>
-        <button className='bt-form' type="reset">Reset</button>
+        <button className='bt-form' type="button" onClick={handleReset}>Reset</button>
         <button className='btn-form'>Login</button>
         </div>
 
