@@ -1,4 +1,5 @@
 import RefLogin from "./RefLogin"
+import ResuableInputStateLogin from "./ReusableInputStateLogin"
 import SignUp from "./SignUp"
 import StateLogin from "./StateLogin"
 import StateLoginCombined from "./StateLoginCombined"
@@ -14,7 +15,8 @@ function App() {
       {/* <StateLogin /> */}
       {/* <StateLoginCombined /> */}
       {/* <RefLogin /> */}
-      <SignUp />
+      {/* <SignUp /> */}
+      <ResuableInputStateLogin />
     </>
   )
 }
