@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "./StateLogin.css";
 
+
+//Added Validation on every keystroke
 const StateLogin = () => {
 
     const [emailValue, setEmailValue]=useState("");
