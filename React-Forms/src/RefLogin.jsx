@@ -15,11 +15,13 @@ const RefLogin = () => {
             console.log("Form Submitted !!!");
             
             
-            // console.log("Email : " , emailRef.current.value);
-            // console.log("Password : ", passwordRef.current.value);
+          
 
             const emailEntered=emailRef.current.value;
             const passwordEntered=passwordRef.current.value;
+
+             console.log("Email : " , emailEntered);
+            console.log("Password : ",passwordEntered);
 
             if(!emailEntered.includes('@'))
             {setIsEmailInvalid(true);

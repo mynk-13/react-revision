@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUp.css";
 
 
@@ -8,8 +8,11 @@ import "./SignUp.css";
  * const fd=new FormData(e.target) --> built in browser constructor function
  * Object.entries(fd.entries());
  */
+
+//Validation with built-in props + custom Logic
 const  SignUp =() => {
 
+    const [passNotEqual, setPassNotEqual]=useState(false);
 
 
     const handleSubmit=(e)=>{
@@ -31,6 +34,13 @@ const  SignUp =() => {
         
        console.log(data);
 
+       if(data.password!==data['confirm-password'])
+       {setPassNotEqual(true);
+        return;
+       }
+
+       setPassNotEqual(false);
+
        e.target.reset();
     
     }
@@ -43,7 +53,7 @@ const  SignUp =() => {
 
       <div className="control">
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" name="email" />
+        <input id="email" type="email" name="email" required />
       </div>
 
       <div className="control-row">
@@ -53,6 +63,8 @@ const  SignUp =() => {
             id="password"
             type="password"
             name="password"
+            required
+            minLength={6}
           />
         </div>
 
@@ -62,10 +74,10 @@ const  SignUp =() => {
             id="confirm-password"
             type="password"
             name="confirm-password"
-           
+            required
           />
         </div>
-       
+       <div>{passNotEqual && <p>Password must match confirm password</p>}</div>
       </div>
 
       <hr />
@@ -73,12 +85,12 @@ const  SignUp =() => {
       <div className="control-row">
         <div className="control">
           <label htmlFor="first-name">First Name</label>
-          <input type="text" id="first-name" name="first-name" />
+          <input type="text" id="first-name" name="first-name" required />
         </div>
 
         <div className="control">
           <label htmlFor="last-name">Last Name</label>
-          <input type="text" id="last-name" name="last-name" />
+          <input type="text" id="last-name" name="last-name" required />
         </div>
       </div>
 
@@ -123,7 +135,7 @@ const  SignUp =() => {
 
       <div className="control">
         <label htmlFor="terms-and-conditions">
-          <input type="checkbox" id="terms-and-conditions" name="terms" />I
+          <input type="checkbox" id="terms-and-conditions" name="terms" required />I
           agree to the terms and conditions
         </label>
       </div>

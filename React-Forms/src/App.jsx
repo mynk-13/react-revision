@@ -12,9 +12,9 @@ function App() {
     <>
     <h2>Forms</h2>
       {/* <StateLogin /> */}
-      <StateLoginCombined />
+      {/* <StateLoginCombined /> */}
       {/* <RefLogin /> */}
-      {/* <SignUp /> */}
+      <SignUp />
     </>
   )
 }
