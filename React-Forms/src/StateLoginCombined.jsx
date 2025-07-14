@@ -74,7 +74,7 @@ const StateLoginCombined = () => {
 
         <div className='btn-container'>
         <button className='bt-form' type="button" onClick={handleReset}>Reset</button>
-        <button className='btn-form'>Login</button>
+        <button className='btn-form' disabled={isEmailInvalid?true:false}>Login</button>
         </div>
 
         </form>

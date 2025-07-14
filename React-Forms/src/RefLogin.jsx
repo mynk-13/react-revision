@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 
 import "./RefLogin.css"
 
@@ -7,14 +7,26 @@ const RefLogin = () => {
     
        const emailRef=useRef();
        const passwordRef=useRef();
+
+       const [isEmailInvalid, setIsEmailInvalid]=useState(false);
     
         const handleSubmit=(e)=>{
             e.preventDefault();
             console.log("Form Submitted !!!");
             
             
-            console.log("Email : " , emailRef.current.value);
-            console.log("Password : ", passwordRef.current.value);
+            // console.log("Email : " , emailRef.current.value);
+            // console.log("Password : ", passwordRef.current.value);
+
+            const emailEntered=emailRef.current.value;
+            const passwordEntered=passwordRef.current.value;
+
+            if(!emailEntered.includes('@'))
+            {setIsEmailInvalid(true);
+                return;
+            }
+
+            setIsEmailInvalid(false);
 
             e.target.reset();
         }
@@ -22,10 +34,11 @@ const RefLogin = () => {
 
   return (
     <div><h2>RefLogin</h2>
-      <form onSubmit={handleSubmit}>
+      <form noValidate='no-validate' onSubmit={handleSubmit}>
         <div className='form-control'>
         <label htmlFor='email' className='form-label'>Email</label><br />
         <input id="email" type="email" name='email' ref={emailRef} />  
+        <div>{isEmailInvalid && <p>Pls enter a valid email</p>}</div>
         </div>
 
         <div className='form-control'>
