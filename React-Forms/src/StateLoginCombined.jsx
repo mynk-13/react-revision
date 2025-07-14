@@ -31,6 +31,8 @@ const StateLoginCombined = () => {
             [identifier]:value
         }))
 
+        setIsEdit((prev)=>({...prev,[identifier]:false}));
+
 
     }
 
