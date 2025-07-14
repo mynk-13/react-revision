@@ -1,72 +1,91 @@
 import React, { useState } from 'react';
 import "./StateLoginCombined.css";
 import Input from './utils/Input';
+import { hasMinLength, isEmail, isNotEmpty } from './utils/validation';
+import { useInput } from './hooks/useInput';
 
 
 //Added Validation on lost focus-> Blur
 const ResuableInputStateLogin = () => {
 
-    const [enteredValues, setEnteredValues]=useState({
-        email:"",
-        password:""
-    });
+    const { value:emailValue,
+            handleInputChange:handleEmailChange,
+            handleInputBlur:handleEmailBlur,
+            setEnteredValue:setEmailValue,
+            hasError:hasEmailError
+    } = useInput("", (value)=>{return isEmail(value) && isNotEmpty(value)});
 
-    const[isEdit,setIsEdit]=useState({
-        email:false,
-        password:false,
-    })
+
+    const { value:passwordValue,
+            handleInputChange:handlePasswordChange,
+            handleInputBlur:handlePasswordBlur,
+            setEnteredValue:setPasswordValue,
+            hasError:hasPasswordError
+    } =useInput("", (value)=> hasMinLength(value, 6) && isNotEmpty(value));
+
 
     const handleSubmit=(e)=>{
         e.preventDefault();
         console.log("Form Submitted !!!");
 
-        console.log("Email : " , enteredValues.email);
-        console.log("Password : ", enteredValues.password);
+        // console.log("Email : " , enteredValues.email);
+        // console.log("Password : ", enteredValues.password);
 
-         setEnteredValues({
-                email:"",
-                password:""
-            });
+        
 
-            setIsEdit({email:false,
-                password:false});
-    }
+        if(hasEmailError || hasPasswordError)
+            return;
 
-    const handleInputChange=(identifier, value)=>{
 
-        setEnteredValues(prev => ({...prev, 
-            [identifier]:value
-        }))
+        console.log("Email : ", emailValue);
+        console.log("Password : " , passwordValue);
 
-        setIsEdit((prev)=>({...prev,[identifier]:false}));
-
+        
+        setEmailValue("");
+        setPasswordValue("");
 
     }
+
+    // const handleInputChange=(identifier, value)=>{
+
+    //     setEnteredValues(prev => ({...prev, 
+    //         [identifier]:value
+    //     }))
+
+    //     setIsEdit((prev)=>({...prev,[identifier]:false}));
+
+
+    // }
 
     const handleReset=()=>{
 
-            setEnteredValues({
-                email:"",
-                password:""
-            });
+        //     setEnteredValues({
+        //         email:"",
+        //         password:""
+        //     });
 
-           setIsEdit({email:false,
-                password:false});
+        //    setIsEdit({email:false,
+        //         password:false});
+
+        setPasswordValue("");
+        setEmailValue("");
+
+
     }
 
-    const handleInputBlur=(identifier)=>{
+    // const handleInputBlur=(identifier)=>{
 
-        setIsEdit((prev)=>({...prev,[identifier]:true}));
+    //     setIsEdit((prev)=>({...prev,[identifier]:true}));
             
-        }
+    //     }
     
 
-    const isEmailInvalid=isEdit.email && !enteredValues.email.includes('@');
-    const isPasswordInvalid=isEdit.password && enteredValues.password.length<6
+    // const isEmailInvalid=isEdit.email && !isEmail(enteredValues.email) && isNotEmpty(enteredValues.email);
+    // const isPasswordInvalid=isEdit.password && !hasMinLength(enteredValues.password,6) && isNotEmpty(enteredValues.password);
 
   return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form noValidate='no-validate' onSubmit={handleSubmit}>
          <h2>StateLoginCombined</h2>
         <div className='form-control'>
          {/* <label htmlFor='email' className='form-label'>Email</label><br />
@@ -79,11 +98,11 @@ const ResuableInputStateLogin = () => {
                 id="email" 
                 name="email" 
                 type="email" 
-                value={enteredValues.email} 
-                onChange={(e)=>handleInputChange("email",e.target.value)} 
-                onBlur={()=>handleInputBlur('email')}
+                value={emailValue} 
+                onChange={handleEmailChange} 
+                onBlur={handleEmailBlur}
                 required
-                error={isEmailInvalid && <p>Pls enter a valid email</p>} />
+                error={hasEmailError && <p>Pls enter a valid email</p>} />
         </div>
         <div className='form-control'>
 
@@ -91,17 +110,16 @@ const ResuableInputStateLogin = () => {
                 id="password" 
                 name="password" 
                 type="password" 
-                value={enteredValues.password} 
-                onChange={(e)=>handleInputChange("password",e.target.value)} 
-                onBlur={()=>handleInputBlur('password')}
-                minLength={6}
+                value={passwordValue} 
+                onChange={handlePasswordChange} 
+                onBlur={handlePasswordBlur}
                 required
-                error={isPasswordInvalid && <p>Pls enter a valid password</p>} />
+                error={hasPasswordError && <p>Pls enter a valid password</p>} />
         </div>
 
         <div className='btn-container'>
-        <button className='bt-form' type="button" onClick={handleReset}>Reset</button>
-        <button className='btn-form' disabled={isEmailInvalid || isPasswordInvalid ?true:false}>Login</button>
+        <button className='bt-form' type="reset" onClick={handleReset}>Reset</button>
+        <button className='btn-form' disabled={hasEmailError || hasPasswordError ?true:false}>Login</button>
         </div>
 
         </form>
